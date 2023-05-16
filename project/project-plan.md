@@ -15,8 +15,8 @@ Analyzing the relationship between bicycle infrastructure and bicycle traffic ca
 <!-- Describe each datasources you plan to use in a section. Use the prefic "DatasourceX" where X is the id of the datasource. -->
 
 ### Datasource1: Bicycle Traffic Data Cologne 2022
-* Metadata URL: https://mobilithek.info/offers/-6901989592576801458
-* Data URL: https://raw.githubusercontent.com/od-ms/radverkehr-zaehlstellen/main/100035541/2019-01.csv
+* Metadata URL: https://mobilithek.info/offers/-2236641647976866002
+* Data URL: https://offenedaten-koeln.de/sites/default/files/Radverkehr%20für%20Offene%20Daten%20Köln%202022.csv
 * Data Type: CSV
 
 Contains month-wise distribution number of cyclists passing on different streets
