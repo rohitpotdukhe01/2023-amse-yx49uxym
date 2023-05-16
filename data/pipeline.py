@@ -18,3 +18,15 @@ df2.to_sql("Bicycle_Roads_Cologne", connection, if_exists='replace', index=False
 
 connection.commit()
 connection.close()
+
+
+conn = sqlite3.connect('AMSE_database.db')
+
+query1 = "SELECT * FROM Bicycle_Traffic_Data_Cologne_2022"
+query2 = "SELECT * FROM Bicycle_Roads_Cologne"
+df3 = pd.read_sql_query(query1, conn)
+df4 = pd.read_sql_query(query2, conn)
+conn.close()
+
+print(df3)
+print(df4)
