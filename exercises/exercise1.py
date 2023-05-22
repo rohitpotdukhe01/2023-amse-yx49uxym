@@ -4,7 +4,7 @@ from sqlalchemy.types import Float, Text, Integer, String
 
 #Fetch and load data into a dataframe
 url = "https://opendata.rhein-kreis-neuss.de/api/v2/catalog/datasets/rhein-kreis-neuss-flughafen-weltweit/exports/csv"
-df = pd.read_csv(url, delimiter=';', index_column='column_1')
+df = pd.read_csv(url, delimiter=';', index_col='column_1')
 #print(df.head())
 
 columns_dataTypes = {
