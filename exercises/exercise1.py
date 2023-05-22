@@ -1,7 +1,6 @@
 import pandas as pd
-import numpy as np
-import sqlalchemy as sq
-from sqlalchemy.types import BIGINT, TEXT, FLOAT
+#import sqlalchemy as sq
+from sqlalchemy.types import Float, Text, Integer, String
 
 #Fetch and load data into a dataframe
 url = "https://opendata.rhein-kreis-neuss.de/api/v2/catalog/datasets/rhein-kreis-neuss-flughafen-weltweit/exports/csv"
@@ -9,19 +8,20 @@ df = pd.read_csv(url, delimiter=';')
 #print(df.head())
 
 columns_dataTypes = {
-    "column_1": sq.Integer,
-    "column_2": sq.String,
-    "column_3": sq.Text,
-    "column_4": sq.Text,
-    "column_5": sq.String(3),
-    "column_6": sq.String(4),
-    "column_7": sq.Float,
-    "column_8": sq.Float,
-    "column_9": sq.Integer,
-    "column_10": sq.Float,
-    "column_11": sq.Text(1),
-    "column_12": sq.String,
-    "geo_punkt": sq.String}
+    "column_1": Integer,
+    "column_2": String,
+    "column_3": Text,
+    "column_4": Text,
+    "column_5": String(3),
+    "column_6": String(4),
+    "column_7": Float,
+    "column_8": Float,
+    "column_9": Integer,
+    "column_10": Float,
+    "column_11": Text(1),
+    "column_12": String,
+    "geo_punkt": String
+}
 
 df.to_sql("airports", "sqlite://" + "/airports.sqlite", if_exists='replace', dtype=columns_dataTypes)
 
