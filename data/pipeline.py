@@ -1,5 +1,4 @@
 import pandas as pd
-import csv
 import sqlite3
 
 #Fetch and load dataset 1
