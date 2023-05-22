@@ -9,7 +9,7 @@ df = pd.read_csv(url, delimiter=';')
 
 columns_dataTypes = {
     "column_1": sq.Integer,
-    "column_2": sq.Text,
+    "column_2": sq.String,
     "column_3": sq.Text,
     "column_4": sq.Text,
     "column_5": sq.String(3),
