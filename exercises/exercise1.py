@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import sqlalchemy as sq
 from sqlalchemy.types import BIGINT, TEXT, FLOAT
 
