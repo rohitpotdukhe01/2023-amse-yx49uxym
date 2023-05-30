@@ -34,7 +34,7 @@ df_2021.fillna(0, inplace=True)
 df_2020.fillna(0, inplace=True)
 
 #Connect and load into SQLite database
-connection = sqlite3.connect('AMSE_database.db')
+connection = sqlite3.connect('AMSE_database.sqlite')
 
 df_2022.to_sql("Bicycle_Traffic_Data_Cologne_2022", connection, if_exists='replace', index=False)
 df_2021.to_sql("Bicycle_Traffic_Data_Cologne_2021", connection, if_exists='replace', index=False)
