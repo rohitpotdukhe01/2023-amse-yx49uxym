@@ -1,4 +1,6 @@
 import os
+import sqlite3
+
 import pandas as pd
 import pipeline
 import pytest
@@ -62,8 +64,8 @@ def test_dataframe_columns():
 
 
 def test_output_exists():
-    #Test to check if the outfile i.e. sqlite file exists or not
-    directory_path = os.path.join(os.getcwd(), '/Users/rohitpotdukhe/PycharmProjects/2023-amse-yx49uxym/data')  # get directory path
+    #Test if output file exists or not
+    directory_path = os.getcwd()  # get directory path
     print(directory_path)
     assert os.path.exists(os.path.join(directory_path, "AMSE_database.sqlite"))
 
@@ -79,4 +81,4 @@ def test_pipeline():
 if __name__ == "__main__":
     print("Initiating Pipeline test")
     test_pipeline()
-    print("Test done!")
+    #print("Test done!")
