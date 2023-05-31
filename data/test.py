@@ -1,6 +1,4 @@
 import os
-import sqlite3
-
 import pandas as pd
 import pipeline
 import pytest
@@ -66,7 +64,6 @@ def test_dataframe_columns():
 def test_output_exists():
     #Test if output file exists or not
     directory_path = os.getcwd()  # get directory path
-    print(directory_path)
     assert os.path.exists(os.path.join(directory_path, "AMSE_database.sqlite"))
 
 
