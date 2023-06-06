@@ -8,7 +8,6 @@ valuetype VerkehrType oftype text {
 	];
 }
 
-
 constraint CoordinatesConstraints oftype RangeConstraint {
     lowerBound: -90;
     upperBound: 90;
@@ -20,7 +19,6 @@ valuetype Coordinates oftype decimal {
     ];
 }
 
-
 constraint IFOPTConstraints oftype RegexConstraint {
     regex: /[a-z]{2}:\d+:\d+(:\d+)?(:\d+)?/;
 }
@@ -30,7 +28,6 @@ valuetype IFOPT oftype text {
         IFOPTConstraints,
     ];
 }
-
 
 pipeline TrainStopsPipeline {
 
