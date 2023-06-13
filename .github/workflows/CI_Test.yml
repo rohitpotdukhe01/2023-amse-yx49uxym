@@ -5,8 +5,6 @@ on:
   push:
     branches:
     - main
-    paths:
-    - project/**
 
 jobs:
   tests:
@@ -14,16 +12,22 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-      with:
-        path: main
 
-    - name: Checkout exercise feedback
-      uses: actions/checkout@v3
+#    - name: Checkout exercise feedback
+#      uses: actions/checkout@v3
 
     - name: Set up Node
       uses: actions/setup-node@v3
       with:
         node-version: 'lts/*'
+
+# Install dependencies
+    - name: Install dependecies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+        pip install pandas
+        pip install sqlalchemy
 
     # Install python
     - name: Set up Python 3.11
