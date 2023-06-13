@@ -6,4 +6,4 @@ python ../data/pipeline.py
 
 # test of pipeline
 echo "Test if pipeline works correctly"
-pytest ../data/test.py
+pytest /data/test.py
