@@ -21,7 +21,6 @@ columns_to_keep = ['date', 'CIN', 'name', 'petrol', 'diesel', 'gas', 'electro', 
 
 #Drop the remaining columns
 df = df[columns_to_keep]
-#print(df.head())
 
 #Validate data
 #CINs are Community Identification Numbers, must be strings with 5 characters and can have a leading 0
