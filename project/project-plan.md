@@ -5,8 +5,6 @@
 <!-- Describe your data science project in max. 5 sentences. -->
 This project describes the long term bicycle traffic trends such as,
 1. Has there been an overall increase or decrease in bicycle traffic volume in Cologne over the years?
-2. Can we identify any seasonal patterns or fluctuations in bicycle traffic volume across different years?
-3. Are there any specific years that show significant changes in bicycle traffic volume?
 
 ## Rationale
 
