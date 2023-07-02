@@ -14,13 +14,23 @@ valuetype monat oftype integer {
     constraints: [monatConstraint];
 }
 
-pipeline TemperaturePipeline {
-    block DataExtractor oftype HttpExtractor { url: "https://www.mowesta.com/data/measure/mowesta-dataset-20221107.zip"; }
-    block ZipArchiveInterpreter oftype ArchiveInterpreter { archiveType: "zip"; }
-    block AgencyFilePicker oftype FilePicker { path: "/data.csv"; }
-    block TemperatureTextFileInterpreter oftype TextFileInterpreter {}
-    block TemperatureCSVInterpreter oftype CSVInterpreter { delimiter: ";"; }
-    block CustomColumnDeleter oftype ColumnDeleter { delete: [column F, column G, column H, column I,  column L, column M, column N, column O]; }
+pipeline Exercise4Pipeline {
+    block DataExtractor oftype HttpExtractor {
+        url: "https://www.mowesta.com/data/measure/mowesta-dataset-20221107.zip";
+    }
+    block TemperaturZipArchiveInterpreter oftype ArchiveInterpreter {
+        archiveType: "zip";
+    }
+    block TemperaturAgencyFilePicker oftype FilePicker {
+        path: "/data.csv";
+    }
+    block TemperaturTextFileInterpreter oftype TextFileInterpreter {}
+    block TemperatureCSVInterpreter oftype CSVInterpreter {
+        delimiter: ";";
+    }
+    block TemperaturColumnDeleter oftype ColumnDeleter {
+        delete: [column F, column G, column H, column I,  column L, column M, column N, column O];
+    }
     block TemperatureTableInterpreter oftype TableInterpreter {
         header: false;
         columns: [
@@ -34,13 +44,13 @@ pipeline TemperaturePipeline {
         ];
     }
 
-    block CelsiusToFahrenheitTransformer oftype TableTransformer {
+    block CelsiusToFahrenheit oftype TableTransformer {
         inputColumn: 'Temperatur';
         outputColumn: 'Temperatur';
         use: CelsiusToFahrenheit;
     }
 
-    block BatterieCelsiusToFahrenheitTransformer oftype TableTransformer {
+    block BatterieCelsiusToFahrenheit oftype TableTransformer {
         inputColumn: 'Batterietemperatur';
         outputColumn: 'Batterietemperatur';
         use: CelsiusToFahrenheit;
@@ -50,12 +60,11 @@ pipeline TemperaturePipeline {
 
     DataExtractor
         ->ZipArchiveInterpreter
-        ->AgencyFilePicker
-        ->TemperatureTextFileInterpreter
-        ->TemperatureCSVInterpreter
-        ->CustomColumnDeleter
-        ->TemperatureTableInterpreter
-        ->CelsiusToFahrenheitTransformer
-        ->BatterieCelsiusToFahrenheitTransformer
+        ->TemperaturFilePicker
+        ->TemperaturTextFileInterpreter
+        ->TemperaturColumnDeleter
+        ->TemperaturTableInterpreter
+        ->CelsiusToFahrenheit
+        ->BatterieCelsiusToFahrenheit
         ->DatabaseLoader;
 }
