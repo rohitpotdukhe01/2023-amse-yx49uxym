@@ -24,7 +24,7 @@ pipeline TemperaturePipeline {
     block TemperatureTableInterpreter oftype TableInterpreter {
         header: false;
         columns: [
-            "Geraet" oftype GeraetID,
+            "Geraet" oftype integer,
             "Hersteller" oftype text,
             "Model" oftype text,
             "Monat" oftype monat,
@@ -46,7 +46,7 @@ pipeline TemperaturePipeline {
         use: CelsiusToFahrenheit;
     }
 
-    block DatabaseLoader oftype SQLiteLoader { table: "temperatures"; file: "./temperatures.sqlite"; }
+    block DatabaseLoader oftype SQLiteLoader { table: "temperatures"; file: "temperatures.sqlite"; }
 
     DataExtractor
         ->ZipArchiveInterpreter
