@@ -62,8 +62,9 @@ pipeline Exercise4Pipeline {
         ->TemperaturZipArchiveInterpreter
         ->TemperaturFilePicker
         ->TemperaturTextFileInterpreter
+        ->TemperatureCSVInterpreter
         ->TemperaturColumnDeleter
-        ->TemperaturTableInterpreter
+        ->TemperatureTableInterpreter
         ->CelsiusToFahrenheit
         ->BatterieCelsiusToFahrenheit
         ->DatabaseLoader;
