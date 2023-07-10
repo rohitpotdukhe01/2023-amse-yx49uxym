@@ -21,7 +21,7 @@ with zipfile.ZipFile(zip_path, 'r') as zip_ref:
 
 # Import dataset
 stops_file = file_path + file_name
-df = pd.read_csv(stops_file, sep=',', decimal='.', index_col=False, usecols=column_picker, dtype=columns_dType, encoding='ISO-8859-1')
+df = pd.read_csv(stops_file, sep=',', decimal='.', index_col=False, usecols=column_picker, encoding='ISO-8859-1')
 print(df.head())
 
 # Only keep stops from zone 2001
