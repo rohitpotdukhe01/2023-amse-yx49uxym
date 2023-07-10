@@ -12,17 +12,14 @@ column_picker = ["stop_id", "stop_name", "stop_lat", "stop_lon", "zone_id"]
 columns_dType = {"stop_id" : Integer, "stop_name" : Text, "stop_lat" : Float, "stop_lon" : Float, "zone_id" : Integer}
 
 
-# Download from URL
+# Data processing
 urllib.request.urlretrieve(url, zip_path)
-
-# Extract
 with zipfile.ZipFile(zip_path, 'r') as zip_ref:
     zip_ref.extractall(file_path)
 
-# Import dataset
+# save to df
 stops_file = file_path + file_name
 df = pd.read_csv(stops_file, sep=',', decimal='.', index_col=False, usecols=column_picker, encoding='utf-8')
-print(df.head())
 
 # Only keep stops from zone 2001
 df = df[df["zone_id"] == 2001]
